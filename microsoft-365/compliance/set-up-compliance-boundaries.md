@@ -286,6 +286,11 @@ Keep the following limitations in mind when managing eDiscovery cases and invest
 
 - Search permissions filters aren't applied to Exchange public folders.
 
+- Searching **all** SharePoint sites and attempting to export **unindexed items** with search hits or individually when the executing user has a search permission filter filter (cmdlet ComplianceSecurityFilter) applied to their account is not supported. An error message would appear when option 2 or 3 is selected under [export output options](/microsoft-365/compliance/export-search-results#step-1-prepare-search-results-for-export) when the executing user has a search permission filter applied and trying to export from all SharePoint locations and specify unindexed items. 
+
+  - *"Unable to execute the task. Reason: The scope options UnindexedItemsOnly or BothIndexedandUnindexedItems are not allowed when the executing user has a compliance security filter applied”* error indicates you’re running into this issue. 
+
+
 ## More information
 
 - If a mailbox is de-licensed or soft-deleted, Azure AD attributes are no longer synchronized to the mailbox. If a hold was placed on the mailbox when it was deleted, the content preserved in the mailbox is still subject to a compliance boundary or search permissions filter based on the last time the Azure AD attributes were synchronized before the mailbox was deleted. 
